@@ -1,11 +1,18 @@
 from . . import db
 from . forms import BlogForm
-from . import Blog
+from . import blog
 from flask import render-template, redirect
+from .. models import Blog
 
-def index():
-    return render_template('index.html')
-
+@blog.route('/addblog', method ['GET','POST'])
 def add_blog():
-    return render_template('')
+    form = BlogForm
+    if form.validate_on_submit():
+        title= form.title.data
+        content = form.content.data
+        author = form.author.data
+        new blog = Blog(title=title, content=content, author=author)
+    
+    return render_template('blog/blog.html', form=form)
+
     

@@ -7,3 +7,4 @@ class BlogForm(FlaskForm):
     title= StringField('Title', validators=[DataRequired()])
     content = StringField('Content', validators=[DataRequired()])
     author = StringField('Author', validators=[DataRequired()])
+    submit = SubmitField('Add blog')
