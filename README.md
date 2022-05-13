@@ -37,3 +37,4 @@ For any further inquiries or contributions or comments, reach me at [Mugera Hugh
 [MIT License](https://github.com/MugeraH/flask_code/blob/main/license)
 
 Copyright (c) 2021
+# TheUltimateGossipBlog
