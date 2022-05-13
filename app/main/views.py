@@ -1,14 +1,28 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 # from ..requests import 
-# from .forms import 
-# from ..models import User
-# from .. import db,photos
+from .forms import *
+from ..models import Blog
+from .. import db
 
 # from flask_login import login_required,current_user
 
 @main.route('/')
 def index():
+    blog=Blog.query.all()
 
+    return render_template('index.html', blog=blog)
 
-    return render_template('index.html')
+@main.route('/addblog',methods=['GET','POST'])
+def add_blog():
+    form = BlogForm()
+    if form.validate_on_submit():
+        new_blog = Blog(title=form.title.data, content=form.content.data, author=form.author.data) 
+        db.session.add(new_blog)
+        db.session.commit()
+        
+        return redirect(url_for('main.index'))
+    
+    return render_template('blog.html', form=form)
+
+    

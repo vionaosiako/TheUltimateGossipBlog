@@ -40,9 +40,6 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     
-    from.blog import blog as blog_blueprint
-    app.register_blueprint(blog_blueprint, url_prefix = '/blog')
-    
       # setting config
     from .requests import configure_request
     configure_request(app)
