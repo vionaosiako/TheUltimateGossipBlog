@@ -26,7 +26,7 @@ def add_blog():
     return render_template('blog.html', form=form)
 
 @main.route('/addcomment',methods=['GET','POST'])
-def add_addcomment():
+def add_comment():
     form = CommentForm()
     if form.validate_on_submit():
         new_comment = Comment(title=form.title.data, content=form.content.data, username=form.username.data) 

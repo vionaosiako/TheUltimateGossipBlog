@@ -18,7 +18,7 @@
                     <p class="card-text text-center"><b>Author: </b>{{gossip.author}}</p>
                     <div style="display: flex; justify-content: space-between;">
                       <div>
-                          <a class="btn btn-primary" href="">Comment</a>
+                          <a class="btn btn-primary" href="{{ url_for ('main.add_comment') }}">Comment</a>
                       </div>
                       <div class="thumb">
                           <p><span class="material-symbols-outlined">thumb_up </span>0</p>
