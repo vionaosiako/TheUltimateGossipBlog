@@ -5,10 +5,41 @@
 {% endblock %}
 
 {% block content %}
+<div class="container-fluid">
 
-<div class="row ">
-  <div class="row bg-primary">
-    <h1 class="text-center">Blogs</h1>
+</div>
+<div class="row">
+  <div class="col-lg-8 banner">
+      <img src="{{ url_for('static', filename = 'images/Blogging.png')}}" alt="image" style="height: 90vh;">
+    
+  </div>
+  <div class="col-lg-4">
+    <div">
+      <img src="{{ url_for('static', filename = 'images/download.jpeg')}}" alt="image" style="height: 45vh; width: 100%;">
+      <div class="bg-transparent text-white banner2">
+        <h3>Lifestyle</h3>
+        <p>Trowback To The Good Old Days.</p>
+      </div>
+        
+      <div>
+        <img src="{{ url_for('static', filename = 'images/guitar.jpeg')}}" alt="image" style="height: 45vh; width: 100%;">
+        <div class="bg-info banner3">
+          <h3>Music</h3>
+          <p>What Your Music Preference Says About You and Your Personality</p>
+        </div>      
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <h1>About Us</h1>
+  </div>
+</div>
+  <div class="row">
+    <h1 class="text-center">What's hot!</h1>
     {% for gossip in blog %}
         <div class="col-lg-6 mt-4">
             <div class="card">
@@ -20,7 +51,7 @@
                       <div>
                           <a class="btn btn-primary" href="{{ url_for ('main.add_comment') }}">Comment</a>
                       </div>
-                      <div class="thumb">
+                      <div style="display: flex;">
                           <p><span class="material-symbols-outlined">thumb_up </span>0</p>
                           <p><span class="material-symbols-outlined">thumb_down</span>0</p>
                       </div>

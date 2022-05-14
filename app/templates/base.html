@@ -13,14 +13,14 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="{{url_for('static', filename = '..style/style.css')}}">
-            <title>PitchItUp</title>
+            <link rel="stylesheet" href="{{url_for('static', filename = 'style/styles.css')}}">
+            <title>Ultimate gossip</title>
             {% endblock %}
         </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff1493;">
             <div class="container-fluid">
-                <a class="navbar-brand text-warning" href="#">TheUltimateGossip</a>
+                <a class="navbar-brand text-white" style="font-size: 2rem; font-weight: bolder;" href="#">TheUltimateGossip</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,7 +43,7 @@
         </div>
 
         <footer class="text-center bg-dark">
-            <p style="color: aliceblue;">copywrite &copy; 2022 <span class="navbar-brand text-warning" style="font-size: 2rem;">TheUltimateGossip</span></p>
+            <p style="color: aliceblue;">copywrite &copy; 2022 <span class="navbar-brand text-info" style="font-size: 1rem;">TheUltimateGossip</span></p>
             <p style="color: aliceblue;">Viona Osiako (Lioness)</p>
         </footer>
     
