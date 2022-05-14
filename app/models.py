@@ -1,30 +1,21 @@
 # from sqlalchemy import False
-from app import db
+from app import db, login_manager
 
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 from werkzeug.security import generate_password_hash,check_password_hash
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
     email = db.Column(db.String(100),nullable = False,unique = True)
     username = db.Column(db.String(100))
-    avatar = db.Column(db.String())
-    password_hash = db.Column(db.String(255))
+    password = db.Column(db.String(255))
         
-    userblog = db.relationship('Blog',backref='user', lazy='dynamic') 
-
-    @property
-    def password(self):
-        raise AttributeError('You cannnot read the password attribute')
-    
-    @password.setter
-    def password(self, password):
-        self.password_secure = generate_password_hash(password)
-
-
-    def verify_password(self,password):
-        return check_password_hash(self.password_secure,password)
+    userblog = db.relationship('Blog',backref='user', lazy='dynamic')
 
 
     def __repr__(self):
