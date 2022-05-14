@@ -44,7 +44,7 @@
   <div class="row" style="background-color: #84e4f7;">
     <h1 class="text-center">Blogs Available</h1>
     {% for gossip in blog %}
-        <div class="col-lg-6 mt-4">
+        <div class="col-lg-4 mt-4">
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-center">{{gossip.title}}</h3>
@@ -52,7 +52,7 @@
                     <p class="card-text text-center"><b>Author: </b>{{gossip.author}}</p>
                     <div style="display: flex; justify-content: space-between;">
                       <div>
-                          <a class="btn btn-primary" href="{{ url_for ('main.add_comment') }}">Comment</a>
+                          <a class="btn" style="background-color: #ff1493;" href="{{ url_for ('main.add_comment') }}">Comment</a>
                       </div>
                       <div style="display: flex;">
                           <p><span class="material-symbols-outlined">thumb_up </span>0</p>
