@@ -1,17 +1,18 @@
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
-# from ..requests import 
 from .forms import *
 from ..models import Blog,Comment
 from .. import db
+from ..requests import get_quote
 
 # from flask_login import login_required,current_user
 
 @main.route('/')
 def index():
     blog=Blog.query.all()
+    quote = get_quote()
 
-    return render_template('index.html', blog=blog)
+    return render_template('index.html', blog=blog, quote=quote)
 
 @main.route('/addblog',methods=['GET','POST'])
 def add_blog():

@@ -56,3 +56,11 @@ class Comment(db.Model):
     def __repr__(self):
         return f'Comment {self.title}'
     
+class Quote:
+    """
+    Class that returns quotes requested from API
+    """
+    def __init__(self, author, quote):
+        self.author = author
+        self.quote = quote
+    
