@@ -16,15 +16,15 @@
   </div>
   <div class="col-lg-4">
     <div">
-      <img src="{{ url_for('static', filename = 'images/download.jpeg')}}" alt="image" style="height: 45vh; width: 100%;">
+      <img src="{{ url_for('static', filename = 'images/oldcar.jpg')}}" alt="image" style="height: 45vh; width: 100%;">
       <div class="bg-transparent text-white" style="text-align: center; position: absolute; transform:translate(50%, -100%);">
         <h3>Lifestyle</h3>
         <p>Trowback To The Good Old Days.</p>
       </div>
         
       <div>
-        <img src="{{ url_for('static', filename = 'images/guitar.jpeg')}}" alt="image" style="height: 45vh; width: 100%;">
-        <div class="bg-info" style="text-align: center;position: absolute;transform:translate(0%, -100%);color: #000000;">
+        <img src="{{ url_for('static', filename = 'images/music.jpg')}}" alt="image" style="height: 45vh; width: 100%;">
+        <div class="" style="text-align: center;position: absolute;transform:translate(0%, -100%);color: rgb(255, 0, 149);">
           <h3>Music</h3>
           <p>What Your Music Preference Says About You and Your Personality</p>
         </div>      
@@ -45,10 +45,17 @@
 
 </div>
 
-<div class="container-fluid" style="background-color: #84E4F7;">
-  <div class="row text-center">
+<div class="row" style="display: flex; justify-content: center; align-items: center;">
+  <div class="col-lg-4">
+    <img src="{{ url_for('static', filename = 'images/foodfood.jpg')}}" alt="image" style="height: 300px; width: 100%;">
+    <div class="bg-transparent text-white" style="text-align: center; position: absolute; transform:translate(50%, -100%);">
+      <h3>Delicacy</h3>
+      <p>This what proper food taste like.</p>
+    </div>
+  </div>
+  <div class="col-lg-8">
     <div class="card">
-      <div class="card-header" style="color: #ff1493;">
+      <div class="card-header text-center" style="color: #ff1493;">
         <b>Quote of the Day</b>
       </div>
       <div class="card-body">
@@ -56,6 +63,11 @@
           <cite>{{ quote.author }}</cite>
       </div>
     </div> 
+  </div>
+</div>
+
+<div class="container-fluid" style="background-color: #84E4F7;">
+  <div class="row text-center">
     <h1 class="text-center">Blogs Available</h1>
     {% for gossip in blog %}
         <div class="col-lg-4 mt-4" style="margin-bottom: 5px;display: grid;">
