@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% block content %}
+
+<div  class="container">
+    <div class="media-body">
+        <h2 class="account-heading">Username: {{current_user.username}}</h2>
+        <p class="text-secondary">Your Email: {{current_user.email}}</p>
+        <p class="text-secondary">Your Bio: {{current_user.bio}}</p>
+        
+        
+    </div>
+    <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+        <li class="nav-item" >
+            <a id ="all" class="nav-link" data-toggle="tab" href="#all"><strong>User Profile</strong> </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div  class="container tab-pane active"><br>
+            {{wtf.quick_form(form)}}
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

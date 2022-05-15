@@ -76,10 +76,14 @@
                     <h3 class="card-title text-center text" style="color: #ff1493;">{{gossip.title}}</h3>
                     <p class="card-text">{{gossip.content}}</p>
                     <p class="card-text text-center"><b>Arthor: </b>{{gossip.author}}</p>
+                    <p class="card-text text-center"><b>Posted on: </b>{{gossip.date}}</p>
                     <div style="display: flex; justify-content: space-between;">
                         <div>
                             <a class="btn" style="background-color: #ff1493;" href="{{ url_for('main.add_comment') }}">Comment</a>
                         </div>
+                        <div>
+                          <a class="btn" style="background-color: #ff1493;" href="{{ url_for('main.viewcomments') }}">View Comment</a>
+                      </div>
                                                 
                     </div>
                     
