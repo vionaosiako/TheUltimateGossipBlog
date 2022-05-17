@@ -32,7 +32,7 @@ class Blog(db.Model):
     title= db.Column(db.String(255))
     content = db.Column(db.String(1000))
     author = db.Column(db.String(255))
-    date = db.Column(db.DateTime)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
     
     usercomment = db.relationship('Comment',backref='blog', lazy='dynamic')        
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -54,10 +54,15 @@ class Blog(db.Model):
 class Comment(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer,primary_key = True)
-    content = db.Column(db.String(1000))
+    comment = db.Column(db.String(1000))
             
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+    
+    #To save the comment
+    def save_c (self):
+        db.session.add(self)
+        db.session.commit()
         
     def __repr__(self):
         return f'Comment {self.title}'

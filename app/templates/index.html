@@ -67,7 +67,7 @@
 </div>
 
 <div class="container-fluid" style="background-color: #84E4F7;">
-  <div class="row text-center">
+  <div class="row">
     <h1 class="text-center">Blogs Available</h1>
     {% for gossip in blog %}
         <div class="col-lg-4 mt-4" style="margin-bottom: 5px;display: grid;">
@@ -76,14 +76,12 @@
                     <h3 class="card-title text-center text" style="color: #ff1493;">{{gossip.title}}</h3>
                     <p class="card-text">{{gossip.content}}</p>
                     <p class="card-text text-center"><b>Arthor: </b>{{gossip.author}}</p>
-                    <p class="card-text text-center"><b>Posted on: </b>{{gossip.date}}</p>
-                    <div style="display: flex; justify-content: space-between;">
+                    <p class="card-text text-center"><b>Posted on: </b>{{gossip.date.strftime('%d-%m-%y')}}</p>
+                    <div>
                         <div>
-                            <a class="btn" style="background-color: #ff1493;" href="{{ url_for('main.add_comment') }}">Comment</a>
+                            <a class="btn" style="background-color: #ff1493;" href="{{ url_for('main.comment',blog_id=gossip.id) }}">Comment</a>
                         </div>
-                        <div>
-                          <a class="btn" style="background-color: #ff1493;" href="{{ url_for('main.viewcomments') }}">View Comment</a>
-                      </div>
+                        
                                                 
                     </div>
                     

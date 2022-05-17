@@ -12,6 +12,7 @@ from PIL import Image
 @main.route('/')
 def index():
     blog=Blog.query.all()
+    blog = Blog.query.order_by(Blog.date.desc())
     quote = get_quote()
 
     return render_template('index.html', blog=blog, quote=quote)
@@ -29,24 +30,20 @@ def add_blog():
     
     return render_template('blog.html', form=form)
 
-@main.route('/addcomment',methods=['GET','POST'])
+@main.route('/comment/<int:blog_id>', methods = ['POST','GET'])
 @login_required
-def add_comment():
+def comment(blog_id):
     form = CommentForm()
+    blog = Blog.query.get(blog_id)
+    all_comments = Comment.query.filter_by(blog_id = blog_id).all()
     if form.validate_on_submit():
-        new_comment = Comment(title=form.title.data, content=form.content.data, username=form.username.data) 
-        db.session.add(new_comment)
-        db.session.commit()
-        
-        return redirect(url_for('main.index'))
-    
-    return render_template('addcomment.html', form=form)
-
-@main.route('/viewcomments')
-def viewcomments():
-    comment = Comment.query.all()
-    
-    return render_template('viewcomments.html', comment = comment)
+        comment = form.comment.data 
+        blog_id = blog_id
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment = comment,user_id = user_id,blog_id = blog_id)
+        new_comment.save_c()
+        return redirect(url_for('.comment', blog_id = blog_id))
+    return render_template('comment.html', form =form, blog = blog,all_comments=all_comments)
 
 @main.route('/delete/comment/<comment_id>')
 @login_required
