@@ -4,9 +4,15 @@
 {% block content %}
     <div class="container" id="allcomments" >
         <div class="row">
+            <div class="col-lg-4">
+                <img src="{{ url_for('static', filename = 'images/how-to-blog.jpg')}}" alt="image" style="height: 75vh;width: 105%;">
+                
+            </div>
             {% if all_comments %}
             <div class="col-lg-4" >
-                <h3 class="text-center" id="coms">All comments for the blog</h3>
+                <h3 class="text-center">The Blog</h3>
+                <p>{{ blog.content }}</p>
+                <h3 class="text-center" id="coms">Comments</h3>
                 {% for comment in all_comments %}
                 <div class="card w-90 mb-3" >
                     <div class="card-body">                            
